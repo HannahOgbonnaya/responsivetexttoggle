@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Text Toggle</title>
+ <head>
+  <style>
+    body{
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container{
+      background: white;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .container img{
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    h1{
+      color:#333;
+      text-align: center;  
+    }
+
+    h2{
+      color:#333;
+      margin-bottom: 15px;
+    }
+
+    .content{
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow: hidden;
+      max-height: 150px;
+      transition: max-height 0.4s ease;
+    }
+
+    .content.expanded{
+      max-height: 1000px;
+    }
+
+    .toggle-btn{
+      margin-top: 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .toggle-btn:hover{
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px){
+      .container{
+        padding: 15px;
+      }
+
+      .toggle-btn{
+        width: 100%;
+      }
+    }
+  </style>
+
+<body>
+  <div class="container">
+    <img src="/Image/Modern 6-2150695915.jpg" alt="Modern Apartment">
+    <h1>Dazzle Connect limited</h1>
+    <h2>Welcome to Our Stylish Apartment</h2>
+    <div class="content" id="textContent">
+      This thoughtfully designed space blends comfort with modern aesthetics. You'll find a fully equipped kitchen, plush bedding, fast Wi-Fi, and plenty of natural light. It's ideal for remote work, short stays, or longer visits.
+      Whether you're relaxing after a busy day or prepping for meetings, every detail here is meant to make your stay smooth. Step outside to explore nearby cafes, transport links, and local attractions. We’re committed to making you feel at home.
+      With smart access, professional cleaning, and responsive support, this apartment is more than a stay—it’s peace of mind.
+    </div>
+    <button class="toggle-btn" id="toggleBtn">Show More</button>
+  </div>
+
+  <script>
+    const content = document.getElementById('textContent')
+    const button = document.getElementById('toggleBtn')
+
+    button.addEventListener('click', () =>{
+      content.classList.toggle('expanded')
+      button.textContent = content.classList.contains('expanded') ? 'Show Less' : 'Show More'
+    })
+  </script>
+</body>
+</html>
